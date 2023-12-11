@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>you can move the cats!</title>
+    <style>
+        .draggable {
+            position: absolute;
+            cursor: move;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+<head>you can move the cats!</head>
+<div id="app">
+    <div v-for="(image, index) in images" :key="index" :style="{ left: image.x + 'px', top: image.y + 'px' }"
+         class="draggable" @mousedown="startDrag(index, $event)" @mouseup="stopDrag" @mousemove="drag($event)">
+        <img :src="image.src" alt="Image">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            images: [
+                { src: 'cats/cat1.png', x: 50, y: 50 },
+                { src: 'cats/cat2.png', x: 150, y: 50 },
+                { src: 'cats/cat3.png', x: 250, y: 50 }
+            ],
+            dragging: false,
+            selectedIndex: null,
+            startOffset: { x: 0, y: 0 }
+        },
+        methods: {
+            startDrag(index, event) {
+                this.dragging = true;
+                this.selectedIndex = index;
+                this.startOffset = {
+                    x: event.clientX - this.images[index].x,
+                    y: event.clientY - this.images[index].y
+                };
+            },
+            drag(event) {
+                if (this.dragging && this.selectedIndex !== null) {
+                    this.images[this.selectedIndex].x = event.clientX - this.startOffset.x;
+                    this.images[this.selectedIndex].y = event.clientY - this.startOffset.y;
+                }
+            },
+            stopDrag() {
+                this.dragging = false;
+                this.selectedIndex = null;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

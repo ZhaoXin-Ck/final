@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #player-container {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+        audio {
+            width: 100%;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="player-container">
+    <h2>music player</h2>
+    <audio id="audio1" controls>
+        <source src="music/music1.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <br>
+    <audio id="audio2" controls>
+        <source src="music/music2.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <br>
+    <audio id="audio3" controls>
+        <source src="music/music3.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <br>
+    <button onclick="playAll()">start all</button>
+    <button onclick="pauseAll()">pause all</button>
+    <button onclick="muteToggle()">mute</button>
+    <button onclick="displaySongInfo()">show info</button>
+</div>
+
+<script>
+    const audio1 = document.getElementById('audio1');
+    const audio2 = document.getElementById('audio2');
+    const audio3 = document.getElementById('audio3');
+
+    function playAll() {
+        audio1.play();
+        audio2.play();
+        audio3.play();
+    }
+
+    function pauseAll() {
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+    }
+
+    function muteToggle() {
+        audio1.muted = !audio1.muted;
+        audio2.muted = !audio2.muted;
+        audio3.muted = !audio3.muted;
+    }
+
+    function displaySongInfo() {
+        alert(`music1：${audio1.currentSrc}\nmusic2：${audio2.currentSrc}\nmusic3：${audio3.currentSrc}`);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <p style="font-size: 35px;text-align: center;font-weight: bold">Welcome to my site !</p>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1;
+        }
+
+        #app {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .module {
+            width: 100%;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+
+        .box h3 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box p {
+            margin: 10px 0;
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .box {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <section class="module" v-for="(module, index) in modules" :key="index">
+        <div class="box" v-for="(box, boxIndex) in module" :key="boxIndex" :style="{ backgroundColor: box.color }"
+         @click="gotoPage(box.url)">
+            <h3>
+                <i class="icon" :class="box.icon"></i>{{ box.title }}
+            </h3>
+            <p>{{ box.content }}</p>
+        </div>
+    </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            modules: [
+                [
+                    { title: 'Personal resume', content: 'Personal resume', color: '#3498db', icon: 'fa fa-smile-o',url:'book.html' },
+                    { title: 'Photo library1', content: 'dogs', color: '#e74c3c', icon: 'fas fa-dog',url:'dogs.html' },
+                    { title: 'Photo library2', content: 'cats', color: '#2ecc71', icon: 'fas fa-cat',url:'cats.html'},
+                ],
+                [
+                    { title: 'My hobby1', content: 'play basketball', color: '#f39c12', icon: 'fas fa-basketball-ball',url:'baseketball.html' },
+                    { title: 'My hobby2', content: 'Read a book',     color: '#9b59b6', icon: 'fas fa-book',url:'book.html' },
+                    { title: 'My hobby3', content: 'Listen to music', color: '#1abc9c', icon: 'fas fa-music',url:'music.html' },
+                ],
+            ]
+        },
+        methods: {
+            gotoPage(url) {
+                window.location = url
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

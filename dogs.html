@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My favorite little dogs</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .dog-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dog-index {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            display: none;
+        }
+
+        .dog-image:hover .dog-index {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <h1>My favorite little dogs</h1>
+    <div class="container">
+        <div v-for="(dog, index) in dogs" :key="index" class="dog-image">
+            <img :src="dog.url" alt="dog images">
+            <div class="dog-index">{{ index + 1 }}</div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            dogs: [
+                { url: 'dogs/dog1.png' },
+                { url: 'dogs/dog2.png' },
+                { url: 'dogs/dog3.png' },
+                { url: 'dogs/dog4.png' },
+                { url: 'dogs/dog5.png' },
+                { url: 'dogs/dog6.png' },
+                { url: 'dogs/dog7.png' },
+                { url: 'dogs/dog8.png' },
+                { url: 'dogs/dog9.png' },
+            ],
+        },
+    });
+</script>
+
+</body>
+</html>
