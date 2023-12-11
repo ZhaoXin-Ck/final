@@ -2,77 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My favorite books</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        #resume-container {
-            text-align: center;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
 
-        #profile-image {
-            width: 170px;
-            height: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            animation: rotate 7s linear infinite;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        #personal-info {
-            margin-bottom: 20px;
-        }
-
-        #hobbies {
-            display: flex;
-            justify-content: center;
-        }
-
-        .hobby-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: #3498db;
-            margin: 0 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-weight: bold;
+        th {
+            background-color: #f2f2f2;
         }
     </style>
-    <title>个人简历</title>
 </head>
 <body>
-<div id="resume-container">
-    <img id="profile-image" src="me.jpg" alt="Profile Image">
-    <div id="personal-info">
-        <h1>zhao xin</h1>
-        <p>My name is Zhao Xin. I am currently a student at Boston University, majoring in computer science</p>
-    </div>
-    <div id="hobbies">
-        <div class="hobby-circle">play basketball</div>
-        <div class="hobby-circle">Listen to music</div>
-        <div class="hobby-circle">Read a book</div>
 
-    </div>
-</div>
+<h1>My favorite books</h1>
+<table>
+    <thead>
+    <tr>
+        <th>title</th>
+        <th>author</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><strong>《Romeo and Juliet》</strong></td>
+        <td>Shakespeare</td>
+    </tr>
+    <tr>
+        <td><strong>《Pride and Prejudice》</strong></td>
+        <td>Austen</td>
+    </tr>
+    <tr>
+        <td><strong>《Animal Farm》</strong></td>
+        <td>Orwell</td>
+    </tr>
+    <tr>
+        <td><strong>《Great Expectations》</strong></td>
+        <td>Dickens</td>
+    </tr>
+    <tr>
+        <td><strong>《Lord of the Flies》</strong></td>
+        <td>Golding</td>
+    </tr>
+    <tr>
+        <td><strong>《The Good Earth》</strong></td>
+        <td>Twain</td>
+    </tr>
+    <tr>
+        <td><strong>《Daddy-Long-Legs》</strong></td>
+        <td>Webster</td>
+    </tbody>
+</table>
+
 </body>
 </html>
